@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --colors",
-    "dev": "nodemon server/index.js --exec babel-node"
+    "dev": "nodemon server/index.js --exec babel-node",
+    "lint": "./node_modules/.bin/eslint client && ./node_modules/.bin/eslint server"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,12 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",  
     "html-webpack-plugin": "^2.30.1",
     "nodemon": "^1.14.11",
     "uglifyjs-webpack-plugin": "^1.1.6",
