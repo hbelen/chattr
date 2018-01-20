@@ -14,4 +14,14 @@ const Server = http.Server(app);
 Server.listen(PORT, () => console.log(`Server running on ${PORT}`)); // eslint-disable-line no-console
 
 const io = socketIO(Server);
-io.on('connection', () => { console.log('Client has connected!'); }); // eslint-disable-line no-console
+const clients = {};
+
+io.on('connection', (socket) => {
+  clients[socket.id] = { id: socket.id };
+  console.log(`Client ${socket.id} connected`); // eslint-disable-line no-console
+
+  socket.on('disconnect', () => {
+    delete clients[socket.id];
+    console.log(`Client ${socket.id} disconnected`); // eslint-disable-line no-console
+  });
+});
