@@ -24,4 +24,9 @@ io.on('connection', (socket) => {
     delete clients[socket.id];
     console.log(`Client ${socket.id} disconnected`); // eslint-disable-line no-console
   });
+
+  socket.on('login', (data) => {
+    clients[socket.id].role = data.role;
+    console.log(`Client ${socket.id} got role '${data.role}'`); // eslint-disable-line no-console
+  });
 });
