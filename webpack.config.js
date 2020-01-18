@@ -7,13 +7,13 @@ const config = {
   entry: './client/index.js',
   watch: true,
   output: {
-    path: path.resolve(__dirname, 'dist/client'),
+    path: path.join(__dirname, 'dist/client'),
     filename: 'index.js',
   },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.js?x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
@@ -21,7 +21,7 @@ const config = {
         },
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
       },
